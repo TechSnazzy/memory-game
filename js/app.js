@@ -4,6 +4,19 @@
 
 const symbols = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-bolt', 'fa fa-cube', 'fa fa-cube', 'fa fa-leaf', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bicycle', 'fa fa-bomb', 'fa fa-bomb'];
 
+// select the deck
+const deck = document.querySelector('.deck');
+
+// create the cards
+for (let i=0; i<symbols.length; i++) {
+  const card = document.createElement('li');
+  const icon = symbols[i];
+  const markup = `<i class="${icon}"></i>`;
+  card.classList.add('card');
+  card.innerHTML = markup;
+  deck.appendChild(card);
+};
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
