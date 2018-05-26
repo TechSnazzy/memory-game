@@ -37,35 +37,40 @@ function click(card) {
       card.classList.add('open', 'show');
       cards.push(this);
 
-      // cards clicked, open/show classes applied
-      // lets compare 2 cards
-      if(current.innerHTML === previous.innerHTML) {
-        current.classList.add('match');
-        previous.classList.add('match');
-
-        // if match, apply match class
-        match.push(current, previous);
-
-        cards = [];
-
-        gameOver();
-
-      } else {
-
-        cards = [];
-
-        // set a 500ms delay for closing cards
-        setTimeout(function() {
-          current.classList.remove('open', 'show');
-          previous.classList.remove('open', 'show');
-        }, 500);
-      }
+      compareCards(current, previous);
 
     } else {
       card.classList.add('open', 'show');
       cards.push(this);
     }
   });
+}
+
+// compare 2 cards
+function compareCards(current, previous) {
+  // cards clicked, open/show classes applied
+  // lets compare 2 cards
+  if(current.innerHTML === previous.innerHTML) {
+    current.classList.add('match');
+    previous.classList.add('match');
+
+    // if match, apply match class
+    match.push(current, previous);
+
+    cards = [];
+
+    gameOver();
+
+  } else {
+
+    cards = [];
+
+    // set a 500ms delay for closing cards
+    setTimeout(function() {
+      current.classList.remove('open', 'show');
+      previous.classList.remove('open', 'show');
+    }, 500);
+  }
 }
 
 function gameOver() {
