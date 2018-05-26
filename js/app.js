@@ -19,6 +19,11 @@ for (let i=0; i<symbols.length; i++) {
   card.innerHTML = markup;
   deck.appendChild(card);
 
+  // add click event to each card
+  click(card);
+}
+
+function click(card) {
   // make the card clickable
   card.addEventListener('click', function() {
 
@@ -45,21 +50,21 @@ for (let i=0; i<symbols.length; i++) {
 
       } else {
 
-        // set a delay for closing cards
+        cards = [];
+
+        // set a 500ms delay for closing cards
         setTimeout(function() {
           current.classList.remove('open', 'show');
           previous.classList.remove('open', 'show');
         }, 500);
-
-        cards = [];
       }
 
     } else {
       card.classList.add('open', 'show');
       cards.push(this);
     }
-  })
-};
+  });
+}
 
 function gameOver() {
   // if length of matches in array is equal to length of symbols
