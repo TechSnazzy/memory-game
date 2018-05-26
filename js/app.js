@@ -37,7 +37,7 @@ function click(card) {
       card.classList.add('open', 'show', 'disable');
       cards.push(this);
 
-      compareCards(current, previous);
+      compare(current, previous);
 
     } else {
       card.classList.add('open', 'show', 'disable');
@@ -47,19 +47,18 @@ function click(card) {
 }
 
 // compare 2 cards
-function compareCards(current, previous) {
-  // cards clicked, open/show classes applied
-  // lets compare 2 cards
+function compare(current, previous) {
+
+  // matcher
   if(current.innerHTML === previous.innerHTML) {
     current.classList.add('match');
     previous.classList.add('match');
 
-    // if match, apply match class
     match.push(current, previous);
 
     cards = [];
 
-    gameOver();
+    gameOver(); // check if the game is over
 
   } else {
 
@@ -67,10 +66,13 @@ function compareCards(current, previous) {
 
     // set a 500ms delay for closing cards
     setTimeout(function() {
-      current.classList.remove('open', 'show');
-      previous.classList.remove('open', 'show');
+      current.classList.remove('open', 'show', 'disable');
+      previous.classList.remove('open', 'show', 'disable');
     }, 500);
   }
+
+  // add new move
+  addMove();
 }
 
 function gameOver() {
@@ -79,6 +81,25 @@ function gameOver() {
     alert("Game Over");
   }
 }
+
+// add a move
+const gameMoves = document.querySelector('.moves');
+let moves = 0;
+
+// update the moves
+function addMove() {
+  moves++;
+  gameMoves.innerHTML = moves; // add it to the container
+}
+
+
+// restart button
+const restartButton = document.querySelector('.restart');
+restartButton.addEventListener('click', function() {
+  deck.innerHTML = ""; // clear the deck of all HTML
+  startGame(); // start the game again
+  match = []; // clear the array of any matched cards
+});
 
 // start the game for the first time
 startGame();
