@@ -8,6 +8,7 @@ const symbols = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
 const deck = document.querySelector('.deck');
 
 let cards = [];
+let match = [];
 
 // create the cards
 for (let i=0; i<symbols.length; i++) {
@@ -34,6 +35,12 @@ for (let i=0; i<symbols.length; i++) {
       if(current.innerHTML === previous.innerHTML) {
         current.classList.add('match');
         previous.classList.add('match');
+
+        // if match, apply match class
+        match.push(current, previous);
+
+        cards = [];
+
       } else {
         current.classList.remove('open', 'show');
         previous.classList.remove('open', 'show');
