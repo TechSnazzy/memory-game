@@ -10,17 +10,19 @@ const deck = document.querySelector('.deck');
 let cards = [];
 let match = [];
 
-// create the cards
-for (let i=0; i<symbols.length; i++) {
-  const card = document.createElement('li');
-  const icon = symbols[i];
-  const markup = `<i class="${icon}"></i>`;
-  card.classList.add('card');
-  card.innerHTML = markup;
-  deck.appendChild(card);
+function startGame() {
+  // create the cards
+  for (let i=0; i<symbols.length; i++) {
+    const card = document.createElement('li');
+    const icon = symbols[i];
+    const markup = `<i class="${icon}"></i>`;
+    card.classList.add('card');
+    card.innerHTML = markup;
+    deck.appendChild(card);
 
-  // add click event to each card
-  click(card);
+    // add click event to each card
+    click(card);
+  }
 }
 
 function click(card) {
@@ -72,6 +74,9 @@ function gameOver() {
     alert("Game Over");
   }
 }
+
+// start the game for the first time
+startGame();
 
 
 /*
