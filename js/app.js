@@ -41,6 +41,8 @@ for (let i=0; i<symbols.length; i++) {
 
         cards = [];
 
+        gameOver();
+
       } else {
         current.classList.remove('open', 'show');
         previous.classList.remove('open', 'show');
@@ -56,6 +58,7 @@ for (let i=0; i<symbols.length; i++) {
 };
 
 function gameOver() {
+  // if length of matches in array is equal to length of symbols
   if (match.length === symbols.length) {
     alert("Game Over");
   }
