@@ -24,9 +24,13 @@ for (let i=0; i<symbols.length; i++) {
     if(cards.length === 1) {
       // when clicked, push open/show classes to card
       console.log("If add class open and show");
+      card.classList.add('open', 'show');
+      cards.push(this);
 
     } else {
       console.log("Else add class open and show");
+      card.classList.add('open', 'show');
+      cards.push(this);
     }
 
   })
