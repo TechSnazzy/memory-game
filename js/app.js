@@ -44,8 +44,12 @@ for (let i=0; i<symbols.length; i++) {
         gameOver();
 
       } else {
-        current.classList.remove('open', 'show');
-        previous.classList.remove('open', 'show');
+
+        // set a delay for closing cards
+        setTimeout(function() {
+          current.classList.remove('open', 'show');
+          previous.classList.remove('open', 'show');
+        }, 500);
 
         cards = [];
       }
