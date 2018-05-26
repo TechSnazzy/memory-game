@@ -34,13 +34,13 @@ function click(card) {
 
     if(cards.length === 1) {
       // when clicked, push open/show classes to card
-      card.classList.add('open', 'show');
+      card.classList.add('open', 'show', 'disable');
       cards.push(this);
 
       compareCards(current, previous);
 
     } else {
-      card.classList.add('open', 'show');
+      card.classList.add('open', 'show', 'disable');
       cards.push(this);
     }
   });
