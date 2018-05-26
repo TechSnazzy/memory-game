@@ -7,6 +7,8 @@ const symbols = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
 // select the deck
 const deck = document.querySelector('.deck');
 
+let cards = [];
+
 // create the cards
 for (let i=0; i<symbols.length; i++) {
   const card = document.createElement('li');
@@ -19,7 +21,8 @@ for (let i=0; i<symbols.length; i++) {
   // make the card clickable
   card.addEventListener('click', function() {
     // do something
-    alert(card.innerHTML);
+    card.classList.add('open', 'show');
+    cards.push(this);
   })
 };
 
