@@ -20,9 +20,15 @@ for (let i=0; i<symbols.length; i++) {
 
   // make the card clickable
   card.addEventListener('click', function() {
-    // do something
-    card.classList.add('open', 'show');
-    cards.push(this);
+
+    if(cards.length === 1) {
+      // when clicked, push open/show classes to card
+      console.log("If add class open and show");
+
+    } else {
+      console.log("Else add class open and show");
+    }
+
   })
 };
 
