@@ -89,9 +89,24 @@ gameMoves.innerHTML = 0;
 function addMove() {
   moves++;
   gameMoves.innerHTML = moves; // add it to the container
+
+  // set the rating
+  rating();
 }
 
 // rating system
+const gameStars = document.querySelector('.stars');
+gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+function rating() {
+  switch(moves) {
+    case 20:
+      gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+    break;
+    case 25:
+      gameStars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+    break;
+  }
+}
 
 
 // restart button
@@ -102,6 +117,7 @@ restartButton.addEventListener('click', function() {
   match = []; // clear the array of any matched cards
   moves = 0;
   gameMoves.innerHTML = moves;
+  gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
 });
 
 // start the game for the first time
