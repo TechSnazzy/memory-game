@@ -15,7 +15,14 @@ for (let i=0; i<symbols.length; i++) {
   card.classList.add('card');
   card.innerHTML = markup;
   deck.appendChild(card);
+
+  // make the card clickable
+  card.addEventListener('click', function() {
+    // do something
+    alert(card.innerHTML);
+  })
 };
+
 
 /*
  * Display the cards on the page
