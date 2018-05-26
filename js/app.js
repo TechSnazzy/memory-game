@@ -85,12 +85,13 @@ function gameOver() {
 // add a move
 const gameMoves = document.querySelector('.moves');
 let moves = 0;
-
-// update the moves
+gameMoves.innerHTML = 0;
 function addMove() {
   moves++;
   gameMoves.innerHTML = moves; // add it to the container
 }
+
+// rating system
 
 
 // restart button
@@ -99,6 +100,8 @@ restartButton.addEventListener('click', function() {
   deck.innerHTML = ""; // clear the deck of all HTML
   startGame(); // start the game again
   match = []; // clear the array of any matched cards
+  moves = 0;
+  gameMoves.innerHTML = moves;
 });
 
 // start the game for the first time
