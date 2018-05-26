@@ -44,15 +44,22 @@ for (let i=0; i<symbols.length; i++) {
       } else {
         current.classList.remove('open', 'show');
         previous.classList.remove('open', 'show');
+
+        cards = [];
       }
 
     } else {
       card.classList.add('open', 'show');
       cards.push(this);
     }
-
   })
 };
+
+function gameOver() {
+  if (match.length === symbols.length) {
+    alert("Game Over");
+  }
+}
 
 
 /*
