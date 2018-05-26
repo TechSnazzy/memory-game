@@ -21,14 +21,25 @@ for (let i=0; i<symbols.length; i++) {
   // make the card clickable
   card.addEventListener('click', function() {
 
+    const current = this;
+    const previous = cards[0];
+
     if(cards.length === 1) {
       // when clicked, push open/show classes to card
-      console.log("If add class open and show");
       card.classList.add('open', 'show');
       cards.push(this);
 
+      // cards clicked, open/show classes applied
+      // lets compare 2 cards
+      if(current.innerHTML === previous.innerHTML) {
+        current.classList.add('match');
+        previous.classList.add('match');
+      } else {
+        current.classList.remove('open', 'show');
+        previous.classList.remove('open', 'show');
+      }
+
     } else {
-      console.log("Else add class open and show");
       card.classList.add('open', 'show');
       cards.push(this);
     }
