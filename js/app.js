@@ -6,9 +6,11 @@ const symbols = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa
 
 // select the deck
 const deck = document.querySelector('.deck');
+const timer = document.querySelector('.timer');
 
 let cards = [];
 let match = [];
+let currentTimer;
 
 function startGame() {
   // create the cards
@@ -21,13 +23,15 @@ function startGame() {
     card.innerHTML = markup;
     deck.appendChild(card);
     shuffle(cards);
-    // add click event to each card
     click(card);
+    stopTimer(currentTimer);
+  	second = 0;
+    timer.innerHTML = second;
+  	startTimer();
   }
 }
 
 function click(card) {
-  // make the card clickable
   card.addEventListener('click', function() {
 
     const current = this;
@@ -87,11 +91,11 @@ function gameOver() {
 const gameMoves = document.querySelector('.moves');
 let moves = 0;
 gameMoves.innerHTML = 0;
+
 function addMove() {
   moves++;
   gameMoves.innerHTML = moves; // add it to the container
 
-  // set the rating
   rating();
 }
 
@@ -108,6 +112,21 @@ function rating() {
     break;
   }
 }
+
+
+// start the timer
+function startTimer() {
+  currentTimer = setInterval(function() {
+    timer.innerHTML = second;
+    second++;
+  }, 1000);
+}
+
+// reset the timer
+function stopTimer(timer) {
+  clearInterval(timer);
+}
+
 
 
 // restart button
