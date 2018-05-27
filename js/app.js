@@ -13,13 +13,14 @@ let match = [];
 function startGame() {
   // create the cards
   for (let i=0; i<symbols.length; i++) {
+    shuffle(symbols);
     const card = document.createElement('li');
     const icon = symbols[i];
     const markup = `<i class="${icon}"></i>`;
     card.classList.add('card');
     card.innerHTML = markup;
     deck.appendChild(card);
-
+    shuffle(cards);
     // add click event to each card
     click(card);
   }
@@ -145,7 +146,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
