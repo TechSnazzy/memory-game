@@ -24,7 +24,7 @@ function startGame() {
     click(card);
     stopTimer(currentTimer);
   	second = 0;
-    timer.innerHTML = second + " seconds";
+    timer.innerHTML = 'Time: ' + second;
   	startTimer();
   }
 }
@@ -89,11 +89,11 @@ function gameOver() {
 // add a move
 const gameMoves = document.querySelector('.moves');
 let moves = 0;
-gameMoves.innerHTML = 0;
+gameMoves.innerHTML = 'Moves: ' + moves;
 
 function addMove() {
   moves++;
-  gameMoves.innerHTML = moves; // add it to the container
+  gameMoves.innerHTML = 'Moves: ' + moves; // add it to the container
 
   rating();
 }
@@ -116,7 +116,7 @@ function rating() {
 // start the timer
 function startTimer() {
   currentTimer = setInterval(function() {
-    timer.innerHTML = second + " seconds";
+    timer.innerHTML = 'Time: ' + second;
     second++;
   }, 1000);
 }
@@ -135,7 +135,7 @@ restartButton.addEventListener('click', function() {
   startGame(); // start the game again
   match = []; // clear the array of any matched cards
   moves = 0;
-  gameMoves.innerHTML = moves;
+  gameMoves.innerHTML = 'Moves: ' + moves;
   gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
 });
 
