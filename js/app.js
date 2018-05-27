@@ -76,6 +76,7 @@ function compare(current, previous) {
   addMove();
 }
 
+
 function gameOver() {
   if (match.length === symbols.length) {
     stopTimer(currentTimer);
