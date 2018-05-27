@@ -59,8 +59,8 @@ function click(card) {
 function compare(current, previous) {
   // Add the Match Class
   if(current.innerHTML === previous.innerHTML) {
-    current.classList.add('match');
-    previous.classList.add('match');
+    current.classList.add('match', 'animated', 'rubberBand');
+    previous.classList.add('match', 'animated', 'rubberBand');
     match.push(current, previous);
     cards = [];
     gameOver(); // check if the game is over
@@ -111,10 +111,10 @@ gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-st
 function rating() {
   switch(moves) {
     case 15:
-      gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+      gameStars.innerHTML = `<li><i class="fa fa-star animated jello"></i></li><li><i class="fa fa-star"></i></li>`;
     break;
     case 20:
-      gameStars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
+      gameStars.innerHTML = `<li><i class="fa fa-star animated jello"></i></li>`;
     break;
   }
 }
@@ -146,7 +146,7 @@ restartButton.addEventListener('click', function() {
   match = [];
   moves = 0;
   gameMoves.innerHTML = 'Moves: ' + moves;
-  gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
+  gameStars.innerHTML = `<li><i class="fa fa-star animated rubberBand"></i></li><li><i class="fa fa-star animated rubberBand"></i></li><li><i class="fa fa-star animated rubberBand"></i></li>`;
 });
 
 startGame(); // start the game for the first time
