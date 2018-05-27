@@ -10,10 +10,8 @@ let cards = [];
 let match = [];
 let currentTimer;
 
-shuffle(symbols);
-
 function startGame() {
-  // create the cards
+  shuffle(symbols);
   for (let i=0; i<symbols.length; i++) {
     const card = document.createElement('li');
     const icon = symbols[i];
@@ -79,10 +77,10 @@ function compare(current, previous) {
 }
 
 function gameOver() {
-  // if length of matches in array is equal to length of symbols
   if (match.length === symbols.length) {
     stopTimer(currentTimer);
-    alert("Game Over");
+    // modal to indicate game over
+    $('#exampleModal').modal('show');
   }
 }
 
@@ -103,10 +101,10 @@ const gameStars = document.querySelector('.stars');
 gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
 function rating() {
   switch(moves) {
-    case 20:
+    case 15:
       gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
     break;
-    case 25:
+    case 20:
       gameStars.innerHTML = `<li><i class="fa fa-star"></i></li>`;
     break;
   }
@@ -131,9 +129,9 @@ function stopTimer(timer) {
 // restart button
 const restartButton = document.querySelector('.restart');
 restartButton.addEventListener('click', function() {
-  deck.innerHTML = ""; // clear the deck of all HTML
-  startGame(); // start the game again
-  match = []; // clear the array of any matched cards
+  deck.innerHTML = "";
+  startGame();
+  match = [];
   moves = 0;
   gameMoves.innerHTML = 'Moves: ' + moves;
   gameStars.innerHTML = `<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>`;
