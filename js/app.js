@@ -4,29 +4,27 @@
 
 const symbols = ['fa fa-diamond', 'fa fa-diamond', 'fa fa-paper-plane-o', 'fa fa-paper-plane-o', 'fa fa-anchor', 'fa fa-anchor', 'fa fa-bolt', 'fa fa-bolt', 'fa fa-cube', 'fa fa-cube', 'fa fa-leaf', 'fa fa-leaf', 'fa fa-bicycle', 'fa fa-bicycle', 'fa fa-bomb', 'fa fa-bomb'];
 
-// select the deck
 const deck = document.querySelector('.deck');
 const timer = document.querySelector('.timer');
-
 let cards = [];
 let match = [];
 let currentTimer;
 
+shuffle(symbols);
+
 function startGame() {
   // create the cards
   for (let i=0; i<symbols.length; i++) {
-    shuffle(symbols);
     const card = document.createElement('li');
     const icon = symbols[i];
     const markup = `<i class="${icon}"></i>`;
     card.classList.add('card');
     card.innerHTML = markup;
     deck.appendChild(card);
-    shuffle(cards);
     click(card);
     stopTimer(currentTimer);
   	second = 0;
-    timer.innerHTML = second;
+    timer.innerHTML = second + " seconds";
   	startTimer();
   }
 }
@@ -83,6 +81,7 @@ function compare(current, previous) {
 function gameOver() {
   // if length of matches in array is equal to length of symbols
   if (match.length === symbols.length) {
+    stopTimer(currentTimer);
     alert("Game Over");
   }
 }
@@ -117,7 +116,7 @@ function rating() {
 // start the timer
 function startTimer() {
   currentTimer = setInterval(function() {
-    timer.innerHTML = second;
+    timer.innerHTML = second + " seconds";
     second++;
   }, 1000);
 }
