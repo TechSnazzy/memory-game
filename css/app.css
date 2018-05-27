@@ -31,6 +31,8 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+    text-align: center;
+    padding-top: 10%;
 }
 
 /*
@@ -55,7 +57,7 @@ h1 {
     height: 125px;
     width: 125px;
     background: #2e3d49;
-    font-size: 8;
+    font-size: 0;
     color: #ffffff;
     border-radius: 8px;
     cursor: pointer;
@@ -88,6 +90,11 @@ h1 {
  * Styles for the Score Panel
  */
 
+.moves, .timer {
+  padding: 20px;
+  font-size: 1.2em;
+}
+
 .score-panel {
     text-align: left;
     width: 345px;
@@ -99,6 +106,7 @@ h1 {
     padding: 0;
     display: inline-block;
     margin: 0 5px 0 0;
+    font-size: 1.2em;
 }
 
 .score-panel .stars li {
@@ -109,4 +117,5 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+    font-size: 1.2em;
 }
