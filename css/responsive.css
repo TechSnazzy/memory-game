@@ -14,7 +14,8 @@
     font-size: 34px;
   }
 
-  .moves, .timer {
+  .moves,
+  .timer {
     padding: 5px;
   }
 
@@ -39,7 +40,8 @@
     font-size: 22px;
   }
 
-  .moves, .timer {
+  .moves,
+  .timer {
     padding: 5px;
   }
 
